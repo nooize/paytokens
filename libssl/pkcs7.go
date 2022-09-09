@@ -1,4 +1,4 @@
-package openssl
+package libssl
 
 /*
 #include <openssl/x509v3.h>

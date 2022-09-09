@@ -1,4 +1,4 @@
-module github.com/nooize/pay-tokens
+module github.com/nooize/paytokens
 
 go 1.19
 

@@ -1,7 +1,7 @@
 //go:build !openssl_static
 // +build !openssl_static
 
-package openssl
+package libssl
 
 // #cgo linux windows freebsd openbsd solaris pkg-config: libssl libcrypto
 // #cgo linux freebsd openbsd solaris CFLAGS: -Wno-deprecated-declarations

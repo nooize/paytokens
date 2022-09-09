@@ -1,4 +1,4 @@
-package openssl
+package libssl
 
 import "C"
 import (

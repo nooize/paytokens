@@ -3,8 +3,8 @@ package apay
 import (
 	"bytes"
 	"encoding/hex"
-	"github.com/nooize/pay-tokens"
-	"github.com/nooize/pay-tokens/openssl"
+	"github.com/nooize/paytokens"
+	"github.com/nooize/paytokens/libssl"
 	"github.com/pkg/errors"
 	"time"
 )
@@ -50,7 +50,7 @@ func (t encryptedToken) verifySignature() error {
 	// decodes the raw payment token signature field into an OpenSSL
 	// PKCS7 struct, and returns the intermediary and leaf certificates used for the
 	// signature
-	p7, inter, leaf, err := openssl.ResolvePKCS7(t.PaymentData.Signature)
+	p7, inter, leaf, err := libssl.ResolvePKCS7(t.PaymentData.Signature)
 	if err != nil {
 		return errors.Wrap(err, "error decoding the token signature")
 	}
