@@ -6,7 +6,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	"github.com/nooize/pay-tokens"
+	"github.com/nooize/paytokens"
 	"net/url"
 	"time"
 )

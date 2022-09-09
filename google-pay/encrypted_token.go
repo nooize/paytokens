@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/nooize/pay-tokens"
+	"github.com/nooize/paytokens"
 	"os"
 	"strings"
 	"time"

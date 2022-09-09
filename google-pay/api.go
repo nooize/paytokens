@@ -5,7 +5,7 @@ import (
 	"crypto/ecdsa"
 	"errors"
 	"fmt"
-	paytokens "github.com/nooize/pay-tokens"
+	"github.com/nooize/paytokens"
 	"strings"
 )
 

@@ -12,7 +12,7 @@ import (
 	"crypto/x509"
 	"encoding/hex"
 	"encoding/json"
-	paytokens "github.com/nooize/pay-tokens"
+	"github.com/nooize/paytokens"
 	"github.com/pkg/errors"
 	"strings"
 	"time"
