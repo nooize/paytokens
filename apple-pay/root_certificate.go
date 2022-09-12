@@ -77,5 +77,8 @@ func parseRootCertificate(bytes []byte) (c *x509.Certificate, err error) {
 	if err != nil {
 		return nil, errors.New("error decoding the root certificate parse: " + err.Error())
 	}
+	if !root.IsCA {
+		return nil, errors.New("the certificate seems not to be a CA")
+	}
 	return root, nil
 }

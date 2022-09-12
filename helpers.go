@@ -19,12 +19,12 @@ func ParsePemPrivateKey(bytes []byte) (crypto.PrivateKey, error) {
 		if block == nil {
 			break
 		}
-		if block.Type == "PRIVATE KEY" {
+		if block.Type == "RSA PRIVATE KEY" {
 			return assist.ParseX509PrivateKey(block.Bytes)
 		}
 		pool = rest
 	}
-	return nil, fmt.Errorf("no private key found")
+	return nil, fmt.Errorf("no RSA private key found")
 }
 
 func LoadPemPrivateKey(path string) (crypto.PrivateKey, error) {
