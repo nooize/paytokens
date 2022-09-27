@@ -1,4 +1,4 @@
-package libssl
+package sslapi
 
 /*
 #include <openssl/x509v3.h>
@@ -11,7 +11,6 @@ int sk_PKCS7_SIGNER_INFO_num_func(STACK_OF(PKCS7_SIGNER_INFO) *sk) { return sk_P
 PKCS7_SIGNER_INFO *sk_PKCS7_SIGNER_INFO_value_func(STACK_OF(PKCS7_SIGNER_INFO) *sk, int i) { return sk_PKCS7_SIGNER_INFO_value(sk, i); }
 */
 import "C"
-
 import (
 	"bytes"
 	"encoding/binary"

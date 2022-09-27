@@ -1,4 +1,4 @@
-package libssl
+package sslapi
 
 import "C"
 import (
