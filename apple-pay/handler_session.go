@@ -38,9 +38,9 @@ func (m *applePayHandler) Session(url ApplePaySessionURL, domain string, name st
 	if err != nil {
 		return nil, errors.Wrap(err, "error making the request")
 	}
+	defer res.Body.Close()
 
 	// Return directly the result
 	body, _ := io.ReadAll(res.Body)
-	_ = res.Body.Close()
 	return body, nil
 }
