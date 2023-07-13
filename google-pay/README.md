@@ -15,14 +15,15 @@ Usage example :
  
 import  "github.com/nooize/paytokens/google-pay"
 
-.... 
+...
 	
   merchantId := "12345678901234567890"
   payToken := []byte("{ ... encrypted token ... }")
   
   decoder, err := gpay.New(
     merchantId,
-    MerchantPrivateKeyLocation("private.pem"),
+    gpay.MerchantPrivateKeyLocation("private.pem"),
+	gpay.TestMode(),
   )
   if err != nil {
 	// handle error

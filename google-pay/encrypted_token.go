@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/nooize/paytokens"
-	"os"
 	"strings"
 	"time"
 )
@@ -17,13 +16,13 @@ type encryptedToken struct {
 	SignedMessage   signedMessage           `json:"signedMessage"`
 }
 
-func (v *encryptedToken) verifyIntermediateSigningKey() error {
+func (v *encryptedToken) verifyIntermediateSigningKey(isLive bool) error {
 	data := constructSignedData(
 		GoogleSenderId,
 		string(v.Protocol),
 		v.IntermediateKey.Key.Raw(),
 	)
-	for _, publicKey := range filterRootKeys(v.Protocol, !("TEST" == os.Getenv("MODE"))) {
+	for _, publicKey := range filterRootKeys(v.Protocol, isLive) {
 		for _, signature := range v.IntermediateKey.Signatures {
 			if err := verifySignature(&publicKey.Key.PublicKey, data, signature); err == nil {
 				return nil

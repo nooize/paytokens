@@ -35,7 +35,10 @@ type IOption func(*googlePayHandler) error
 
 // New create new google pay handler instance with custom parameters
 func New(merchantId string, options ...IOption) (IGooglePayHandler, error) {
-	handler := &googlePayHandler{merchantId: strings.TrimSpace(merchantId)}
+	handler := &googlePayHandler{
+		merchantId: strings.TrimSpace(merchantId),
+		liveMode:   true,
+	}
 	for _, option := range options {
 		if err := option(handler); err != nil {
 			return nil, err
@@ -55,6 +58,22 @@ func Decrypt(data []byte) (*GooglePayToken, error) {
 		return nil, fmt.Errorf("default google pay not defined")
 	}
 	return defHandler.Decrypt(data)
+}
+
+// TestMode option func to define test mode for tokens
+func TestMode() IOption {
+	return func(h *googlePayHandler) error {
+		h.liveMode = false
+		return nil
+	}
+}
+
+// LiveMode option func to define production mode for tokens
+func LiveMode() IOption {
+	return func(h *googlePayHandler) error {
+		h.liveMode = true
+		return nil
+	}
 }
 
 // MerchantPrivateKey option func to define merchant private key

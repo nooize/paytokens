@@ -33,7 +33,7 @@ func (d *googlePayHandler) Decrypt(input []byte) (*GooglePayToken, error) {
 		return nil, errors.New("ephemeral public key is empty")
 	}
 
-	if err := req.verifyIntermediateSigningKey(); err != nil {
+	if err := req.verifyIntermediateSigningKey(d.liveMode); err != nil {
 		return nil, err
 	}
 
